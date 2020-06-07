@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="spring40-source:war exploded">
+    <output-path>$PROJECT_DIR$/target/spring4study</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="spring40-source" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/spring4study/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="spring40-source/web/Web" />
+    </root>
+  </artifact>
+</component>
