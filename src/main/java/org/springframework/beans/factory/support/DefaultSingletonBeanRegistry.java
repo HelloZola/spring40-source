@@ -37,19 +37,19 @@ import org.springframework.util.StringUtils;
  * {@link SingletonBeanRegistry}.
  * Allows for registering singleton instances that should be shared
  * for all callers of the registry, to be obtained via bean name.
- *
+ * <p>
  * <p>Also supports registration of
  * {@link DisposableBean} instances,
  * (which might or might not correspond to registered singletons),
  * to be destroyed on shutdown of the registry. Dependencies between
  * beans can be registered to enforce an appropriate shutdown order.
- *
+ * <p>
  * <p>This class mainly serves as base class for
  * {@link org.springframework.beans.factory.BeanFactory} implementations,
  * factoring out the common management of singleton bean instances. Note that
  * the {@link org.springframework.beans.factory.config.ConfigurableBeanFactory}
  * interface extends the {@link SingletonBeanRegistry} interface.
- *
+ * <p>
  * <p>Note that this class assumes neither a bean definition concept
  * nor a specific creation process for bean instances, in contrast to
  * {@link AbstractBeanFactory} and {@link DefaultListableBeanFactory}
@@ -247,11 +247,17 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
      */
     protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 
+        //@vi for debug
         if (beanName.toLowerCase().equals("userserviceimpl")) {
             System.out.println("i find u," + beanName);
         }
 
         Object singletonObject = this.singletonObjects.get(beanName);
+
+        if (beanName.toLowerCase().equals("userserviceimpl") && singletonObject != null) {
+            System.out.println("i find u," + beanName);
+        }
+
         if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
             synchronized (this.singletonObjects) {
                 singletonObject = this.earlySingletonObjects.get(beanName);
@@ -298,8 +304,18 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
                 }
                 try {
                     //这一步在获取单例时，会注入依赖，如果依赖还没创建，则继续创建依赖，待依赖都创建完成后，才会继续往下走
-                    //所以，依赖的循环在这里发生了递归
+                    //所以，依赖的循环在这里发生了递归  singletonFactory =  AbstractBeanFactory
+
+                    if (beanName.toLowerCase().equals("userserviceimpl")) {
+                        System.out.println("i find u, make a debug" + beanName);
+                    }
+                    //singletonFactory =  AbstractBeanFactory
                     singletonObject = singletonFactory.getObject();
+
+                    if (beanName.toLowerCase().equals("helloworldcontroller")) {
+                        System.out.println("i find u, make a debug" + beanName);
+                    }
+
                     newSingleton = true;
                 } catch (IllegalStateException ex) {
                     // Has the singleton object implicitly appeared in the meantime ->

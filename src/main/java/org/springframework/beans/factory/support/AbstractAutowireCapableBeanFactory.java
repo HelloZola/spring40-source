@@ -443,6 +443,12 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	 */
 	@Override
 	protected Object createBean(String beanName, RootBeanDefinition mbd, Object[] args) throws BeanCreationException {
+
+		if (beanName.toLowerCase().equals("userserviceimpl")) {
+			System.out.println("i find u, make a debug" + beanName);
+		}
+
+
 		if (logger.isDebugEnabled()) {
 			logger.debug("Creating instance of bean '" + beanName + "'");
 		}
@@ -546,8 +552,10 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		}
 
 		// Initialize the bean instance.
+		// exposedObject意思是一个暴露的对象，
 		Object exposedObject = bean;
 		try {
+			//填充
 			populateBean(beanName, mbd, instanceWrapper);
 			if (exposedObject != null) {
 				exposedObject = initializeBean(beanName, exposedObject, mbd);
@@ -1138,6 +1146,14 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	 */
 	protected BeanWrapper instantiateBean(final String beanName, final RootBeanDefinition mbd) {
 		try {
+
+			if (beanName.toLowerCase().equals("userserviceimpl")) {
+				System.out.println("i find u, make a debug" + beanName);
+			}
+			if (beanName.toLowerCase().equals("custserviceimpl")) {
+				System.out.println("i find u, make a debug" + beanName);
+			}
+
 			Object beanInstance;
 			final BeanFactory parent = this;
 			if (System.getSecurityManager() != null) {
