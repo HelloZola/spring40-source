@@ -174,7 +174,16 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
      */
     protected void addSingleton(String beanName, Object singletonObject) {
 
+        //@vi for debug
+        if (beanName.toLowerCase().equals("helloworldcontroller")) {
+            System.out.println("i find u," + beanName);
+        }
+
         if (beanName.toLowerCase().equals("userserviceimpl")) {
+            System.out.println("i find u," + beanName);
+        }
+
+        if (beanName.toLowerCase().equals("custserviceimpl")) {
             System.out.println("i find u," + beanName);
         }
 
@@ -200,6 +209,13 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
         if (beanName.toLowerCase().equals("userserviceimpl")) {
             System.out.println("i find u," + beanName);
         }
+        if (beanName.toLowerCase().equals("helloworldcontroller")) {
+            System.out.println("i find u," + beanName);
+        }
+        if (beanName.toLowerCase().equals("custservice")) {
+            System.out.println("i find u," + beanName);
+        }
+
         Assert.notNull(singletonFactory, "Singleton factory must not be null");
         synchronized (this.singletonObjects) {
             if (!this.singletonObjects.containsKey(beanName)) {
@@ -281,6 +297,8 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
                     this.suppressedExceptions = new LinkedHashSet<Exception>();
                 }
                 try {
+                    //这一步在获取单例时，会注入依赖，如果依赖还没创建，则继续创建依赖，待依赖都创建完成后，才会继续往下走
+                    //所以，依赖的循环在这里发生了递归
                     singletonObject = singletonFactory.getObject();
                     newSingleton = true;
                 } catch (IllegalStateException ex) {
@@ -304,6 +322,8 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
                     afterSingletonCreation(beanName);
                 }
                 if (newSingleton) {
+                    //依赖的创建都在 singletonObject = singletonFactory.getObject(); 这一步发生完成了
+                    //这一步是把bean加入一级缓存，完成创建
                     addSingleton(beanName, singletonObject);
                 }
             }

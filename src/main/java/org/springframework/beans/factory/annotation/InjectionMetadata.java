@@ -84,6 +84,10 @@ public class InjectionMetadata {
 				if (logger.isDebugEnabled()) {
 					logger.debug("Processing injected element of bean '" + beanName + "': " + element);
 				}
+				//@vi for debug
+				if(beanName.equals("helloworldController")){
+					System.out.println("pause");
+				}
 				element.inject(target, beanName, pvs);
 			}
 		}

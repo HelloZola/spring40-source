@@ -1345,6 +1345,17 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
                 // Cache the merged bean definition for the time being
                 // (it might still get re-merged later on in order to pick up metadata changes)
                 if (containingBd == null && isCacheBeanMetadata()) {
+                    //@vi for debug
+                    if (beanName.toLowerCase().equals("userserviceimpl")) {
+                        System.out.println("i find u," + beanName);
+                    }
+                    if (beanName.toLowerCase().equals("helloworldcontroller")) {
+                        System.out.println("i find u," + beanName);
+                    }
+                    if (beanName.toLowerCase().equals("custservice")) {
+                        System.out.println("i find u," + beanName);
+                    }
+
                     this.mergedBeanDefinitions.put(beanName, mbd);
                 }
             }
