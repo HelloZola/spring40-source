@@ -13,7 +13,7 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd  
         ">
         
-    <context:component-scan base-package="example.aspect"></context:component-scan>
+    <context:component-scan base-package="example.aspect,beanFactoryPostProcessor"></context:component-scan>
 	
 	<!-- 开启AOP监、 使用cglib代理 -->
 	<!--<aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true" />-->

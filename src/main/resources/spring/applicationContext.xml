@@ -19,9 +19,13 @@
 
 	<mvc:annotation-driven />
 	<!-- 开启AOP监听 只对当前配置文件有效 -->
-	<context:component-scan base-package="com.cn.myspring.controller,example.aspect,junit.test">
+	<context:component-scan base-package="com.cn.myspring.controller,example.aspect,beanFactoryPostProcessor">
 
 	</context:component-scan>
+
+	<bean  id="pojoTest" class="beanFactoryPostProcessor.PojoTest">
+		<property name="name" value="测试一下啦" />
+	</bean>
 
 	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">

@@ -9,6 +9,8 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     private ICustService custService;
 
+    private String property;
+
     @Override
     public void addUser() {
         custService.saySomething();
