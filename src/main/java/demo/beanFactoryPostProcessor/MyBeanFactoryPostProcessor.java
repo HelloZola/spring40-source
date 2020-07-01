@@ -1,4 +1,4 @@
-package beanFactoryPostProcessor;
+package demo.beanFactoryPostProcessor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.MutablePropertyValues;

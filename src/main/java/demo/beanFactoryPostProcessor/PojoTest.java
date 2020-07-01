@@ -1,4 +1,4 @@
-package beanFactoryPostProcessor;
+package demo.beanFactoryPostProcessor;
 
 public class PojoTest {
 
