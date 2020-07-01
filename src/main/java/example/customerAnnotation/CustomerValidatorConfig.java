@@ -1,8 +1,10 @@
 package example.customerAnnotation;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import utils.PrintContolUtils;
 
 import java.lang.annotation.Annotation;
 import java.util.Map;
@@ -24,7 +26,7 @@ public class CustomerValidatorConfig implements ApplicationContextAware {
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         customerValidationRules = applicationContext
                 .getBeansWithAnnotation(CustomerRule.class);
-        System.out.println(customerValidationRules);
+        PrintContolUtils.print(PrintContolUtils.Bean, JSONObject.toJSONString(customerValidationRules));
     }
 
     private CustomerValidatorRule findFormMap(Annotation annotation) {

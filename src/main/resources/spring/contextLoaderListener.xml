@@ -13,11 +13,17 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd  
         ">
 
-    <context:component-scan base-package="example.aspect,demo"></context:component-scan>
+    <!--注意-->
+    <!--注意-->
+    <!--注意-->
+    <!--配置文件说明：该文件配置在web.xml中，需要在web场景下才会生效-->
+
+
+    <context:component-scan base-package="example.aspect"></context:component-scan>
 
     <!-- 开启AOP监、 使用cglib代理 -->
-    <!--<aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true" />-->
-    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>
+    <!-- <aop:aspectj-autoproxy proxy-target-class="true"/>-->
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"></property>

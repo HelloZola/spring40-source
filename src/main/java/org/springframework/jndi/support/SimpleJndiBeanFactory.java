@@ -32,6 +32,7 @@ import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.core.ResolvableType;
 import org.springframework.jndi.JndiLocatorSupport;
 import org.springframework.jndi.TypeMismatchNamingException;
+import utils.PrintContolUtils;
 
 /**
  * Simple JNDI-based implementation of Spring's
@@ -112,7 +113,7 @@ public class SimpleJndiBeanFactory extends JndiLocatorSupport implements BeanFac
     public Object getBean(String name) throws BeansException {
 
         if ("userServiceImpl".toLowerCase().equals("userserviceimpl")) {
-            System.out.println("i find u," + name);
+            PrintContolUtils.print(PrintContolUtils.Bean,"i find u," + name);
         }
         return getBean(name, Object.class);
     }
@@ -121,7 +122,7 @@ public class SimpleJndiBeanFactory extends JndiLocatorSupport implements BeanFac
     public <T> T getBean(String name, Class<T> requiredType) throws BeansException {
         try {
             if ("userServiceImpl".toLowerCase().equals("userserviceimpl")) {
-                System.out.println("i find u," + name);
+                PrintContolUtils.print(PrintContolUtils.Bean,"i find u," + name);
             }
 
             if (isSingleton(name)) {

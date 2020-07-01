@@ -77,6 +77,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
+import utils.PrintContolUtils;
 
 /**
  * Abstract bean factory superclass that implements default bean creation,
@@ -445,7 +446,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	protected Object createBean(String beanName, RootBeanDefinition mbd, Object[] args) throws BeanCreationException {
 
 		if (beanName.toLowerCase().equals("userserviceimpl")) {
-			System.out.println("i find u, make a debug" + beanName);
+			PrintContolUtils.print(PrintContolUtils.Bean,"i find u, make a debug" + beanName);
 		}
 
 
@@ -1148,10 +1149,10 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		try {
 
 			if (beanName.toLowerCase().equals("userserviceimpl")) {
-				System.out.println("i find u, make a debug" + beanName);
+				PrintContolUtils.print(PrintContolUtils.Bean,"i find u, make a debug" + beanName);
 			}
 			if (beanName.toLowerCase().equals("custserviceimpl")) {
-				System.out.println("i find u, make a debug" + beanName);
+				PrintContolUtils.print(PrintContolUtils.Bean,"i find u, make a debug" + beanName);
 			}
 
 			Object beanInstance;

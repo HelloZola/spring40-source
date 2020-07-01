@@ -31,6 +31,7 @@ import org.springframework.beans.factory.config.SingletonBeanRegistry;
 import org.springframework.core.SimpleAliasRegistry;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
+import utils.PrintContolUtils;
 
 /**
  * Generic registry for shared bean instances, implementing the
@@ -158,11 +159,11 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
     }
 
     private void printlnSingleTonList() {
-        System.out.println("当前所有的单例bean ...");
+        PrintContolUtils.print(PrintContolUtils.Bean, "当前所有的单例bean ...");
         for (String name : singleTonLoadlist) {
-            System.out.println(name);
+            PrintContolUtils.print(PrintContolUtils.Bean, name);
         }
-        System.out.println("....................");
+        PrintContolUtils.print(PrintContolUtils.Bean, "....................");
     }
 
     /**
@@ -176,15 +177,15 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 
         //@vi for debug
         if (beanName.toLowerCase().equals("helloworldcontroller")) {
-            System.out.println("i find u," + beanName);
+            PrintContolUtils.print(PrintContolUtils.Bean, "i find u," + beanName);
         }
 
         if (beanName.toLowerCase().equals("userserviceimpl")) {
-            System.out.println("i find u," + beanName);
+            PrintContolUtils.print(PrintContolUtils.Bean, "i find u," + beanName);
         }
 
         if (beanName.toLowerCase().equals("custserviceimpl")) {
-            System.out.println("i find u," + beanName);
+            PrintContolUtils.print(PrintContolUtils.Bean, "i find u," + beanName);
         }
 
         synchronized (this.singletonObjects) {
@@ -207,13 +208,13 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
     protected void addSingletonFactory(String beanName, ObjectFactory<?> singletonFactory) {
 
         if (beanName.toLowerCase().equals("userserviceimpl")) {
-            System.out.println("i find u," + beanName);
+            PrintContolUtils.print(PrintContolUtils.Bean, "i find u," + beanName);
         }
         if (beanName.toLowerCase().equals("helloworldcontroller")) {
-            System.out.println("i find u," + beanName);
+            PrintContolUtils.print(PrintContolUtils.Bean, "i find u," + beanName);
         }
         if (beanName.toLowerCase().equals("custservice")) {
-            System.out.println("i find u," + beanName);
+            PrintContolUtils.print(PrintContolUtils.Bean, "i find u," + beanName);
         }
 
         Assert.notNull(singletonFactory, "Singleton factory must not be null");
@@ -231,7 +232,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
     @Override
     public Object getSingleton(String beanName) {
         if (beanName.toLowerCase().equals("userserviceimpl")) {
-            System.out.println("i find u," + beanName);
+            PrintContolUtils.print(PrintContolUtils.Bean, "i find u," + beanName);
         }
         return getSingleton(beanName, true);
     }
@@ -249,13 +250,13 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 
         //@vi for debug
         if (beanName.toLowerCase().equals("userserviceimpl")) {
-            System.out.println("i find u," + beanName);
+            PrintContolUtils.print(PrintContolUtils.Bean, "i find u," + beanName);
         }
 
         Object singletonObject = this.singletonObjects.get(beanName);
 
         if (beanName.toLowerCase().equals("userserviceimpl") && singletonObject != null) {
-            System.out.println("i find u," + beanName);
+            PrintContolUtils.print(PrintContolUtils.Bean, "i find u," + beanName);
         }
 
         if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
@@ -307,13 +308,13 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
                     //所以，依赖的循环在这里发生了递归  singletonFactory =  AbstractBeanFactory
 
                     if (beanName.toLowerCase().equals("userserviceimpl")) {
-                        System.out.println("i find u, make a debug" + beanName);
+                        PrintContolUtils.print(PrintContolUtils.Bean, "i find u, make a debug" + beanName);
                     }
                     //singletonFactory =  AbstractBeanFactory
                     singletonObject = singletonFactory.getObject();
 
                     if (beanName.toLowerCase().equals("helloworldcontroller")) {
-                        System.out.println("i find u, make a debug" + beanName);
+                        PrintContolUtils.print(PrintContolUtils.Bean, "i find u, make a debug" + beanName);
                     }
 
                     newSingleton = true;

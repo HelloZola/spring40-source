@@ -2,6 +2,7 @@ package example.aspect;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import utils.PrintContolUtils;
 
 @Service
 public class UserServiceImpl implements IUserService {
@@ -14,7 +15,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void addUser() {
         custService.saySomething();
-        System.out.println("Thanks. Nice to Meet U!");
+        PrintContolUtils.print(PrintContolUtils.Aop, "Thanks. Nice to Meet U!");
     }
 
 }

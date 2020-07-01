@@ -77,6 +77,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.util.StringValueResolver;
+import utils.PrintContolUtils;
 
 /**
  * Abstract base class for {@link BeanFactory}
@@ -282,7 +283,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
         Object bean;
 
         if (name.toLowerCase().equals("userserviceimpl")) {
-            System.out.println("i find u," + name);
+            PrintContolUtils.print(PrintContolUtils.Bean,"i find u," + name);
         }
 
         // Eagerly check singleton cache for manually registered singletons.
@@ -300,7 +301,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
             }
 
             if (name.toLowerCase().equals("userserviceimpl")) {
-                System.out.println("i find u," + name);
+                PrintContolUtils.print(PrintContolUtils.Bean,"i find u," + name);
             }
 
             //从bean实例中获取对象,这里的sharedInstance有可能是一个工厂，也有可能就是需要寻找的实例对象，在里面会进行判断
@@ -1347,13 +1348,13 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
                 if (containingBd == null && isCacheBeanMetadata()) {
                     //@vi for debug
                     if (beanName.toLowerCase().equals("userserviceimpl")) {
-                        System.out.println("i find u," + beanName);
+                        PrintContolUtils.print(PrintContolUtils.Bean,"i find u," + beanName);
                     }
                     if (beanName.toLowerCase().equals("helloworldcontroller")) {
-                        System.out.println("i find u," + beanName);
+                        PrintContolUtils.print(PrintContolUtils.Bean,"i find u," + beanName);
                     }
                     if (beanName.toLowerCase().equals("custservice")) {
-                        System.out.println("i find u," + beanName);
+                        PrintContolUtils.print(PrintContolUtils.Bean,"i find u," + beanName);
                     }
 
                     this.mergedBeanDefinitions.put(beanName, mbd);
@@ -1671,11 +1672,11 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 
 
         if (name.toLowerCase().equals("userserviceimpl")) {
-            System.out.println("i find u," + name);
+            PrintContolUtils.print(PrintContolUtils.Bean,"i find u," + name);
         }
 
         if (beanName.toLowerCase().equals("userserviceimpl")) {
-            System.out.println("i find u," + beanName);
+            PrintContolUtils.print(PrintContolUtils.Bean,"i find u," + beanName);
         }
 
         // Don't let calling code try to dereference the factory if the bean isn't a factory.

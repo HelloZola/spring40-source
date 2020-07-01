@@ -3,6 +3,7 @@ package demo.beanPostProcessor;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
+import utils.PrintContolUtils;
 
 import java.lang.reflect.Field;
 
@@ -33,7 +34,7 @@ public class AnotationBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("有bean路过这里，它是：" + beanName);
+        PrintContolUtils.print(PrintContolUtils.Bean, "有bean路过这里，它是：" + beanName);
         return bean;
     }
 }
