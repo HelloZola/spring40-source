@@ -22,28 +22,20 @@ public class TransactionDemo {
     // 前置通知
     @Before("pointCutMethod()")
     public void startTransaction() {
-        PrintContolUtils.print(PrintContolUtils.Aop, "begin transaction ");
+        PrintContolUtils.print(PrintContolUtils.Aop, "前置通知 begin ");
     }
 
     // 后置通知
     @AfterReturning(pointcut = "pointCutMethod()")
     public void commitTransaction() {
-        PrintContolUtils.print(PrintContolUtils.Aop, "commit transaction ");
+        PrintContolUtils.print(PrintContolUtils.Aop, "前置通知 end ");
     }
 
     // 环绕通知
     @Around("pointCutMethod()")
     public void around(ProceedingJoinPoint joinPoint) throws Throwable {
-        PrintContolUtils.print(PrintContolUtils.Aop, "begin transaction");
+        PrintContolUtils.print(PrintContolUtils.Aop, "环绕通知 begin");
         joinPoint.proceed();
-        PrintContolUtils.print(PrintContolUtils.Aop, "commit transaction");
+        PrintContolUtils.print(PrintContolUtils.Aop, "环绕通知 end");
     }
-
-    //@AfterThrowing("pointCutMethod()")
-    /*@AfterThrowing(throwing="ex",pointcut="pointCutMethod()")
-    public void handerException(Throwable ex){
-		System.out.println("目标方法中抛出的异常:"+ex);  
-        System.out.println("模拟抛出异常后的增强处理...");  
-	}*/
-
 }

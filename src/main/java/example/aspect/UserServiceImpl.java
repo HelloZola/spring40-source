@@ -14,8 +14,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void addUser() {
-        custService.saySomething();
-        PrintContolUtils.print(PrintContolUtils.Aop, "Thanks. Nice to Meet U!");
+        PrintContolUtils.print(PrintContolUtils.Aop, "hello UserServiceImpl!!!");
     }
 
 }

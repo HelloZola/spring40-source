@@ -11,7 +11,6 @@ public class AspectTest {
     public void test1() {
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
-        //UserServiceImpl userService = applicationContext.getBean(UserServiceImpl.class);
         UserServiceImpl userService = (UserServiceImpl) applicationContext.getBean("userServiceImpl");
         userService.addUser();
     }
