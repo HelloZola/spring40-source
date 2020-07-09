@@ -1,4 +1,4 @@
-package proxy.demo.jdk;
+package proxy.jdk;
 
 public interface JcyaoService {
     /**

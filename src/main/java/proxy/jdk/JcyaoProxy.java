@@ -1,4 +1,4 @@
-package proxy.demo.jdk;
+package proxy.jdk;
 
 import org.junit.Test;
 import java.lang.reflect.Proxy;
