@@ -45,6 +45,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -66,22 +72,13 @@
             <artifactId>spring-tx</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.springframework</groupId>-->
-        <!--<artifactId>spring-asm</artifactId>-->
-        <!--<version>3.1.4.RELEASE</version>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.8.5</version>
-        </dependency>
+
         <!-- https://mvnrepository.com/artifact/cglib/cglib-nodep -->
         <dependency>
             <groupId>cglib</groupId>
@@ -173,12 +170,6 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.47</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring</artifactId>
-            <version>1.0-m4</version>
         </dependency>
 
         <dependency>
@@ -307,12 +298,6 @@
             <artifactId>jopt-simple</artifactId>
             <version>5.0.3</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.8.9</version>
-        </dependency>
         <!-- 额外需要的包 spring-core end-->
         <!--*************************************************************************************************************-->
 
@@ -363,25 +348,6 @@
             <version>2.4.2</version>
             <scope>compile</scope>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.8.9</version>
-            <scope>compile</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>4.3.20.RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>4.3.20.RELEASE</version>
-            <scope>compile</scope>
         </dependency>
 
     </dependencies>
