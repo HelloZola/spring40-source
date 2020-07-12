@@ -1,6 +1,7 @@
 package com.cn.myspring.controller;
 
 import bean.ArgBean;
+import com.alibaba.fastjson.JSON;
 import example.aspect.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -58,7 +59,7 @@ public class HelloworldController {
     /**
      * 这种方式没问题，效果跟helloworld3一样
      *
-     * @return
+     * @see HelloworldController#helloworld3(ArgBean)
      */
     @ResponseBody
     @RequestMapping(path = "/helloworld24", method = RequestMethod.POST)
